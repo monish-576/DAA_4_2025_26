@@ -49,18 +49,6 @@ cout<<"overflow" ;
   heapSize++;
   heapifyUp(heapSize-1);
 }
-
-void deleteNode() {
-
-  if(heapSize ==0) {
-		cout<<"no element";
-    return ;
-  }
-  
-  heap[0] = heap[heapSize-1];
-  heapSize--;
-  heapifyDown(0);
-}
 int main() {
     int K, N;
     cin >> K >> N;
@@ -86,3 +74,4 @@ int main() {
     }
     return 0;
 }
+
