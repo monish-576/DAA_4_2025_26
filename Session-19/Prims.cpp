@@ -1,47 +1,46 @@
-class DSU {
-    vector<int> parent;
-public:
-    DSU(int n) {
-        parent.resize(n);
-        for(int i = 0; i < n; i++) parent[i] = i;
-    }
-    int find(int i) {
-        if (parent[i] == i) return i;
-        return parent[i] = find(parent[i]);
-    }
-    bool unite(int i, int j) {
-        int root_i = find(i);
-        int root_j = find(j);
-        if (root_i != root_j) {
-            parent[root_i] = root_j;
-            return true;
-        }
-        return false;
-    }
-};
-
 class Solution {
-public:
-    int spanningTree(int V, vector<vector<int>> &edges) {
-        sort(edges.begin(), edges.end(), [](const vector<int>& a, const vector<int>& b) {
-            return a[2] < b[2];
-        });
+  public:
+    int spanningTree(int V, vector<vector<int>>& edges) {
+       int E = edges.size();
+    
+   
+    vector<vector<pair<int,int>>> adj(V);
 
-        DSU dsu(V);
-        int mstWeight = 0;
-        int count = 0;
+    for (int i = 0; i < E; i++) {
+        int u, v, w;
+        u = edges[i][0];
+        v = edges[i][1];
+        w = edges[i][2];
+        adj[u].push_back({w,v});
+        adj[v].push_back({w,u});
+    }
 
-        for (auto& edge : edges) {
-            int u = edge[0];
-            int v = edge[1];
-            int w = edge[2];
+    vector<bool> visited(V,false);
 
-            if (dsu.unite(u, v)) {
-                mstWeight += w;
-                count++;
-                if (count == V - 1) break;
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+    
+    
+    pq.push({0,0});
+    
+    int minCost = 0;
+    
+    while(!pq.empty()) 
+    {
+        int wi = pq.top().first;
+        int ui = pq.top().second;
+        pq.pop();
+
+        if(!visited[ui]) {
+            visited[ui] = true;          
+            minCost += wi;               
+            for(auto it : adj[ui]) {     
+                if(!visited[it.second]) {
+                    pq.push({it.first, it.second});
+                }
             }
         }
-        return mstWeight;
+    }
+
+    return minCost;
     }
 };
