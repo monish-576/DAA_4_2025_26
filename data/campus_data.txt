@@ -1,0 +1,49 @@
+# NODES
+13 25 18 Auditorium
+12 40 18 Food Court
+11 40 2 Sports Ground
+4 25 4 Academic Block B
+3 25 8 Academic Block A
+2 40 8 Main Library
+1 40 12 Administration Block
+5 55 8 Academic Block C
+6 55 4 Academic Block D
+7 65 12 Nek Chand Boys Hostel
+8 70 16 Zakir Boys Hostel
+9 15 12 Sukhna Girls Hostel
+10 10 16 Tagore Girls Hostel
+# EDGES
+13 1 350 0
+13 12 200 0
+12 1 300 0
+12 9 500 0
+12 13 200 0
+12 7 800 0
+11 4 250 0
+11 6 250 0
+11 2 400 0
+4 3 150 0
+4 11 250 0
+3 2 350 0
+3 4 150 0
+3 9 400 0
+2 1 200 0
+2 3 350 0
+2 5 350 0
+2 11 400 0
+1 2 200 0
+1 12 300 0
+1 13 350 0
+5 2 350 0
+5 6 150 0
+5 7 400 0
+6 5 150 0
+6 11 250 0
+7 5 400 0
+7 8 300 0
+7 12 800 0
+8 7 300 0
+9 3 400 0
+9 10 300 0
+9 12 500 0
+10 9 300 0

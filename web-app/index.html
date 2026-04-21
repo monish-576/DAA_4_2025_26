@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CU Navigator - GeoMap</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Geospatial Map Container -->
+    <div id="map"></div>
+
+    <!-- UI Overlay container -->
+    <div class="glass-panel sidebar" style="z-index: 1000;">
+      <div class="header">
+        <h1>CU Navigator</h1>
+        <p>Interactive Topographic Map</p>
+      </div>
+
+      <div class="controls">
+        <label class="theme-switch">
+          <input type="checkbox" id="map-theme-toggle">
+          <span class="slider round"></span>
+          <span class="theme-label" id="theme-text">Dark Mode</span>
+        </label>
+
+        <div class="input-group">
+          <label>Start Location</label>
+          <select id="start-select">
+            <option value="" disabled selected>Select start node...</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Destination</label>
+          <select id="end-select">
+            <option value="" disabled selected>Select destination...</option>
+          </select>
+        </div>
+
+        <button id="find-route-btn">Find Footpath Routing</button>
+      </div>
+
+      <div id="results-panel" class="hidden">
+        <h3>Route Summary</h3>
+        <p id="route-path-text"></p>
+        <div class="stats">
+          <div class="stat-box">
+            <span class="label">Distance</span>
+            <span class="value" id="route-distance">-</span>
+          </div>
+          <div class="stat-box">
+            <span class="label">Est. Walk</span>
+            <span class="value" id="route-time">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instruction toast -->
+    <div class="toast glass-panel" style="z-index: 1000;">
+      Click on map markers directly to set Start/End points.
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
